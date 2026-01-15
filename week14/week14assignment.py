@@ -22,8 +22,11 @@ def generate_lost_report(bag_map, lost_tag_set):
     
     print(f"Lost Bags: {lost_tag_set}")
     print(f"Mystery Bags: {mystery_bag}")
+    lost_tag_set = sorted(lost_tag_set, key=lambda tag: bag_map[tag])
+
     report = [ f"Missing: Bag {tag} (Owner: {bag_map[tag]})"
         for tag in lost_tag_set
+
     ]
     print(f"Report: {report}")
 dictionary = build_baggage_map(manifest)
